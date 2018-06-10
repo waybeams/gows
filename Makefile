@@ -6,12 +6,8 @@ dev-install:
 	git submodule init
 	git submodule sync
 	git submodule update --recursive
-	cd src/github.com/waybeams/assert && \
-		git pull origin master
-		git co master
-	cd src/github.com/waybeams/waybeams && \
-		git pull origin master && \
-		git co master
+	cd src/github.com/waybeams/assert && git pull origin master && git checkout master && cd -
+	cd src/github.com/waybeams/waybeams && git pull origin master && git checkout master && cd -
 	mkdir -p vendor/src
 	go get -u github.com/waybeams/assert/...
 	go get -u github.com/waybeams/waybeams/...
