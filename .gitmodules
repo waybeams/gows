@@ -1,0 +1,6 @@
+[submodule "src/github.com/waybeams/waybeams"]
+	path = src/github.com/waybeams/waybeams
+	url = git@github.com:waybeams/waybeams.git
+[submodule "src/github.com/waybeams/assert"]
+	path = src/github.com/waybeams/assert
+	url = git@github.com:waybeams/assert.git
