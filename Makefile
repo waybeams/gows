@@ -2,6 +2,21 @@
 
 run: todo
 
+dev-install:
+	git submodule init
+	git submodule sync
+	git submodule update --recursive
+	cd src/github.com/waybeams/assert && \
+		git pull origin master
+		git co master
+	cd src/github.com/waybeams/waybeams && \
+		git pull origin master && \
+		git co master
+	source setup-env.sh && \
+		go get -u github.com/waybeams/assert/... && \
+		go get -u github.com/waybeams/waybeams/...
+	make test
+
 todo:
 	go run ./src/github.com/waybeams/waybeams/examples/todo/main.go
 
