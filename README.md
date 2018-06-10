@@ -19,12 +19,12 @@ make dev-install
 make test
 ```
 
-## Build and run TODO application
+## Build and run Todo application
 ```bash
 make run
 ```
 
-## BUild the TODO application
+## Build the Todo application
 ```bash
 make build
 ```
