@@ -11,32 +11,7 @@ For the record, I'm not loving this unusual and messy, manual configuration, but
 mkdir gows
 cd gows
 git clone https://github.com/waybeams/gows.git .
-git submodule init
-git submodule sync
-git submodule update --recursive
-```
-
-### Deal with Git submodule insanity
-```bash
-cd src/github.com/waybeams/assert
-git pull origin master
-git co master
-cd -
-```
-
-### Deal with Git submodule insanity (again)
-```bash
-cd src/github.com/waybeams/waybeams
-git pull origin master
-git co master
-cd -
-```
-
-### Pull Golang dependencies, without committing to any particular go dependency management as this is also quite insane at the moment.
-```bash
-source setup-env.sh
-go get -u github.com/waybeams/assert/...
-go get -u github.com/waybeams/waybeams/...
+make dev-install
 ```
 
 ## Run Tests
@@ -47,5 +22,10 @@ make test
 ## Build and run TODO application
 ```bash
 make run
+```
+
+## BUild the TODO application
+```bash
+make build
 ```
 

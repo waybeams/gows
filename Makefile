@@ -16,6 +16,9 @@ dev-install:
 todo:
 	go run ./src/github.com/waybeams/waybeams/examples/todo/main.go
 
+build:
+	go build -ldflags="-s -w" -o bin/todo ./src/github.com/waybeams/waybeams/examples/todo/main.go
+
 test:
 	./bin/gotest-color test ./src/...
 
