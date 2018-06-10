@@ -12,9 +12,9 @@ dev-install:
 	cd src/github.com/waybeams/waybeams && \
 		git pull origin master && \
 		git co master
-	source setup-env.sh && \
-		go get -u github.com/waybeams/assert/... && \
-		go get -u github.com/waybeams/waybeams/...
+	mkdir -p vendor/src
+	go get -u github.com/waybeams/assert/...
+	go get -u github.com/waybeams/waybeams/...
 	make test
 
 todo:
