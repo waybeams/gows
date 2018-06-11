@@ -13,6 +13,9 @@ dev-install:
 	go get -u github.com/waybeams/waybeams/...
 	make test
 
+clean:
+	go clean -i all
+
 todo:
 	go run ./src/github.com/waybeams/waybeams/examples/todo/main.go
 
