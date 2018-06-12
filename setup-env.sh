@@ -15,6 +15,6 @@ else
 fi
 
 # Export the GOPATH
-export GOPATH=$BASEDIR/vendor:$BASEDIR
+export GOPATH=$BASEDIR/vendor:$BASEDIR/src
 export PATH=$PATH:$BASEDIR/vendor/bin
 
