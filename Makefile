@@ -1,7 +1,5 @@
 # Build file for Waybeams workspace
 
-run: todo
-
 dev-install:
 	git submodule init
 	git submodule sync
@@ -14,13 +12,25 @@ dev-install:
 	make test
 
 clean:
-	go clean -i all
+	rm bin/todo-desktop
+	rm bin/todo.min.js
+	rm bin/todo.min.js.map
 
-todo:
-	go run ./src/github.com/waybeams/waybeams/examples/todo/main.go
+run:
+	go run ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-desktop/main.go
 
 build:
-	go build -ldflags="-s -w" -o bin/todo ./src/github.com/waybeams/waybeams/examples/todo/main.go
+	go build -ldflags="-s -w" -o bin/todo-desktop ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-desktop/main.go
+
+serve:
+	gopherjs serve github.com/waybeams/waybeams/examples/todo/cmd/todo-browser/main.go
+
+run-js:
+	gopherjs run ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-browser/main.go
+
+
+build-js:
+	gopherjs build -m -o bin/todo.min.js ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-browser/main.go
 
 test:
 	./bin/gotest-color test ./src/...
