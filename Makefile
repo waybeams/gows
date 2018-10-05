@@ -12,6 +12,7 @@ dev-install:
 	make test
 
 clean:
+	rm -rf bin/gobot-hello
 	rm -f bin/todo-desktop
 	rm -f bin/todo.min.js
 	rm -f bin/todo.min.js.map
@@ -19,6 +20,14 @@ clean:
 
 run:
 	go run ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-desktop/main.go
+
+# Temporary dev task
+dev-pi: build-pi
+	scp ./bin/gobot-hello raspy:/home/pi/hello
+	ssh -t raspy "sudo ./hello"
+
+build-pi:
+	GOARM=6 GOARCH=arm GOOS=linux go build -o bin/gobot-hello ./src/github.com/lukebayes/learning/gobot/main.go
 
 build:
 	go build -ldflags="-s -w" -o bin/todo-desktop ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-desktop/main.go
