@@ -26,8 +26,11 @@ dev-pi: build-pi
 	scp ./bin/gobot-hello raspy:/home/pi/hello
 	ssh -t raspy "sudo ./hello"
 
+test-pi:
+	./bin/gotest-color test ./src/github.com/lukebayes/learning/gobot/...
+
 build-pi:
-	GOARM=6 GOARCH=arm GOOS=linux go build -o bin/gobot-hello ./src/github.com/lukebayes/learning/gobot/main.go
+	GOARM=6 GOARCH=arm GOOS=linux go build -o bin/gobot-hello ./src/github.com/lukebayes/learning/gobot/rotary/example1/main.go
 
 build:
 	go build -ldflags="-s -w" -o bin/todo-desktop ./src/github.com/waybeams/waybeams/examples/todo/cmd/todo-desktop/main.go
